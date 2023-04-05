@@ -1,5 +1,5 @@
 build:
-	gcc -o hello.so -Wall hello.c
+	gcc -o hello.o -Wall hello.c
 
 clean:
-	rm hello.so
+	rm hello.o
