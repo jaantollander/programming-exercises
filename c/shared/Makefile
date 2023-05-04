@@ -3,11 +3,11 @@ SRC_DIR := ./src
 
 CC := gcc
 CFLAGS := -Wall -Werror -fpic
-LDLIBS := $(shell pwd)/$(BUILD_DIR)
+LDFLAGS := -L $(shell pwd)/$(BUILD_DIR)
 
 $(BUILD_DIR)/main: $(SRC_DIR)/main.c $(BUILD_DIR)/main.so
 	mkdir -p $(dir $@)
-	$(CC) $(LDFLAGS) $^ -L $(LDLIBS) -o $@
+	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
 
 $(BUILD_DIR)/main.so: $(BUILD_DIR)/main.o
 	mkdir -p $(dir $@)
