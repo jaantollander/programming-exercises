@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /* Program that says hello */
 int main()
 {
     printf("Hello world\n");
-    return (0);
+    return EXIT_SUCCESS;
 }

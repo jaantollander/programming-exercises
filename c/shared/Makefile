@@ -11,7 +11,8 @@ $(BUILD_DIR)/main: $(SRC_DIR)/main.c $(BUILD_DIR)/main.so
 
 $(BUILD_DIR)/main.so: $(BUILD_DIR)/main.o
 	mkdir -p $(dir $@)
-	$(CC) -shared $^ -o $@ 
+	$(CC) -shared $^ -o $@
+
 $(BUILD_DIR)/main.o: $(SRC_DIR)/main.c
 	mkdir -p $(dir $@)
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) $^ -o $@
