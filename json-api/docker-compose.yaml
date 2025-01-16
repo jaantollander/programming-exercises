@@ -1,0 +1,30 @@
+services:
+  myapp:
+    image: "localhost/myapp:latest"
+    container_name: "myapp"
+    networks:
+      - "myapp-network"
+
+  caddy:
+    image: "caddy:2-alpine"
+    container_name: "caddy"
+    ports:
+      - "8080:80"
+      - "8443:443"
+      - "8443:443/udp"  # HTTP/3
+    volumes:
+      - "./Caddyfile:/etc/caddy/Caddyfile"
+      - "caddy_data:/data"
+      - "caddy_config:/config"
+    networks:
+      - "myapp-network"
+    depends_on:
+      - "myapp"
+
+networks:
+  myapp-network:
+    driver: "bridge"
+
+volumes:
+  caddy_data:
+  caddy_config:

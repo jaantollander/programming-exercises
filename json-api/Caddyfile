@@ -1,0 +1,8 @@
+{
+	email jaan.tollander.de.balsch@csc.fi
+}
+
+localhost {
+	tls internal
+	reverse_proxy myapp:8000
+}
