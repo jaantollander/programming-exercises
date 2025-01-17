@@ -12,12 +12,15 @@ run() {
 
     # Set up local ca certificates
     # https://caddyserver.com/docs/running#local-https-with-docker
-    if [ ! -f /usr/local/share/ca-certificates/root.crt  ]; then
-        _TMPFILE=$(mktemp --suffix .crt)
-        docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt "$_TMPFILE"
-        sudo cp "$_TMPFILE" /usr/local/share/ca-certificates/root.crt
+    local LOCAL_CRT TMP_CRT
+    LOCAL_CRT=/usr/local/share/ca-certificates/caddy-docker.crt
+    if [ ! -f "$LOCAL_CRT"  ]; then
+        TMP_CRT=$(mktemp --suffix .crt)
+        docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt "$TMP_CRT"
+        sudo cp "$TMP_CRT" "$LOCAL_CRT"
+        sudo chmod u=rw,go=r "$LOCAL_CRT"
         sudo update-ca-certificates
-        rm "$_TMPFILE"
+        rm "$TMP_CRT"
     fi
 }
 
