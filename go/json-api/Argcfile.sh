@@ -8,7 +8,7 @@ run() {
     docker build --tag localhost/myapp:latest --file app.dockerfile .
 
     # Run the application
-    docker compose up -d
+    docker compose --file compose.yaml up -d
 
     # Set up local ca certificates
     # https://caddyserver.com/docs/running#local-https-with-docker
