@@ -29,5 +29,17 @@ stop() {
     docker container stop myapp caddy
 }
 
+# @cmd
+test-get() {
+    curl --silent https://localhost:8443/users
+}
+
+# @cmd
+test-post() {
+    curl --silent -X POST https://localhost:8443/users \
+         -H "Content-Type: application/json" \
+         -d '{"name":"John Doe","email":"john@example.com"}'
+}
+
 # See more details at https://github.com/sigoden/argc
 eval "$(argc --argc-eval "$0" "$@")"
