@@ -1,0 +1,20 @@
+services:
+  app:
+    build: .
+    container_name: python-server
+    networks:
+      - web
+
+  caddy:
+    image: caddy:2
+    container_name: caddy-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
