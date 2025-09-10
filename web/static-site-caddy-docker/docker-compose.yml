@@ -1,0 +1,9 @@
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/usr/share/caddy
+    command: caddy file-server --domain localhost --root /usr/share/caddy --listen :80
