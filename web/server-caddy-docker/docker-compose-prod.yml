@@ -1,6 +1,8 @@
 services:
   app:
-    build: .
+    build:
+      dockerfile: Dockerfile
+      context: .
     container_name: python-server-prod
     restart: unless-stopped
     networks:
