@@ -6,7 +6,7 @@ A simple FastAPI server containerized with Docker and served through Caddy rever
 
 1. Build and start the containers:
 ```bash
-docker compose up --build
+docker compose -f docker-compose-dev.yml up -d --build
 ```
 
 2. Access the application at `http://localhost:8080`
@@ -32,9 +32,9 @@ Caddy will automatically handle:
 
 **Development:**
 ```bash
-docker compose down
+docker compose -f docker-compose-dev.yml down
 # With volumes:
-docker compose down -v
+docker compose -f docker-compose-dev.yml down -v
 ```
 
 **Production:**
@@ -60,7 +60,7 @@ docker compose -f docker-compose-prod.yml down -v
 - `main.py` - FastAPI application
 - `requirements.txt` - Python dependencies
 - `Dockerfile` - Container configuration for Python server
-- `docker-compose.yml` - Development multi-container setup
+- `docker-compose-dev.yml` - Development multi-container setup
 - `docker-compose-prod.yml` - Production multi-container setup with HTTPS
-- `Caddyfile` - Development Caddy configuration (HTTP)
-- `Caddyfile.prod` - Production Caddy configuration (HTTPS with example.com)
+- `dev.Caddyfile` - Development Caddy configuration (HTTP)
+- `prod.Caddyfile` - Production Caddy configuration (HTTPS with example.com)

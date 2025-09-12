@@ -11,7 +11,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./dev.Caddyfile:/etc/caddy/Caddyfile
     networks:
       - web
 
