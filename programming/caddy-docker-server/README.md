@@ -6,7 +6,7 @@ A simple FastAPI server containerized with Docker and served through Caddy rever
 
 1. Build and start the containers:
 ```bash
-docker compose -f docker-compose-dev.yml up -d --build
+docker compose -f compose-dev.yml up -d --build
 ```
 
 2. Access the application at `http://localhost:8080`
@@ -18,7 +18,7 @@ For production deployment with HTTPS on `example.com`:
 1. Ensure your domain points to the server
 2. Build and start the production containers:
 ```bash
-docker compose -f docker-compose-prod.yml up -d --build
+docker compose -f compose-prod.yml up -d --build
 ```
 
 3. The application will be available at `https://example.com`
@@ -32,16 +32,16 @@ Caddy will automatically handle:
 
 **Development:**
 ```bash
-docker compose -f docker-compose-dev.yml down
+docker compose -f compose-dev.yml down
 # With volumes:
-docker compose -f docker-compose-dev.yml down -v
+docker compose -f compose-dev.yml down -v
 ```
 
 **Production:**
 ```bash
-docker compose -f docker-compose-prod.yml down
+docker compose -f compose-prod.yml down
 # With volumes (removes SSL certificates):
-docker compose -f docker-compose-prod.yml down -v
+docker compose -f compose-prod.yml down -v
 ```
 
 ## Endpoints
@@ -60,7 +60,7 @@ docker compose -f docker-compose-prod.yml down -v
 - `main.py` - FastAPI application
 - `requirements.txt` - Python dependencies
 - `Dockerfile` - Container configuration for Python server
-- `docker-compose-dev.yml` - Development multi-container setup
-- `docker-compose-prod.yml` - Production multi-container setup with HTTPS
+- `compose-dev.yml` - Development multi-container setup
+- `compose-prod.yml` - Production multi-container setup with HTTPS
 - `dev.Caddyfile` - Development Caddy configuration (HTTP)
 - `prod.Caddyfile` - Production Caddy configuration (HTTPS with example.com)
