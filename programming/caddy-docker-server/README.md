@@ -58,7 +58,7 @@ docker compose -f compose-prod.yml down -v
 ## Files
 
 - `main.py` - FastAPI application
-- `requirements.txt` - Python dependencies
+- `pyproject.toml` - Python dependencies and project metadata
 - `Dockerfile` - Container configuration for Python server
 - `compose-dev.yml` - Development multi-container setup
 - `compose-prod.yml` - Production multi-container setup with HTTPS
