@@ -1,0 +1,23 @@
+services:
+  caddy:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: caddy-self-signed
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
