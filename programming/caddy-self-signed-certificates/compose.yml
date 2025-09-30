@@ -3,6 +3,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
+    environment:
+      - DOMAIN=localhost
     image: localhost/caddy-self-signed:latest
     container_name: caddy-self-signed
     restart: unless-stopped

@@ -1,5 +1,5 @@
 ```bash
-docker compose -f compose.yml up -d --build
+docker compose up -d --build
 ```
 
 ```bash
@@ -11,5 +11,5 @@ curl --cacert root.crt https://localhost:8443
 ```
 
 ```bash
-docker compose -f compose.yml down
+docker compose down
 ```

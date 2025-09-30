@@ -1,4 +1,4 @@
-localhost {
+{$DOMAIN} {
 	tls internal
 	respond "Hello world!"
 }
