@@ -1,5 +1,0 @@
-- Write a simple python server that uses `uvicorn` to `main.py` file.
-- Write the dependencies to `requirements.txt` file.
-- Write a Dockerfile to build a container for the server.
-- Write Docker compose file to serve the site locally using Caddy as a reverse proxy to the server.
-- Use only HTTP.
