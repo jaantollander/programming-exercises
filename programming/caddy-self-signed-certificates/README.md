@@ -3,7 +3,7 @@ docker compose -f compose.yml up -d --build
 ```
 
 ```bash
-docker compose cp caddy:/data/caddy/pki/authorities/local/root.crt root.crt
+docker cp caddy-self-signed:/data/caddy/pki/authorities/local/root.crt root.crt
 ```
 
 ```bash
