@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      secrets:
+        - mysecretid
+    image: container-build-secrets:latest
+
+secrets:
+  mysecretid:
+    file: ./mysecret
